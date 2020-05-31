@@ -1,21 +1,29 @@
-var pokeId = 1;
-var interval = setInterval('display()', 1000);
-var boton = document.getElementById('boton');
+var pokeID = 1;
+let pokemonHTML = document.getElementById("pkmn");
+let interval = setInterval('display()', 2000);
 
 
 function display() {
-   boton.innerHTML = pokeId.toString();
-   consultarPkmn()
-
-   pokeId++;
-   if (pokeId > 150) {
-      pokeId = 1;
-   }
+   pokeAPI()
+   pokeID++;
+   
 }
 
-function consultarPkmn() {
-   let pokeApi = "https://pokeapi.co/api/v2/pokemon/";
-   fetch(pokeApi + pokeId.toString())
-      .then(response => response.json())
-      .then(data => console.log(data.name))
+function pokeAPI(pokeID = 1) {
+   let url = "https://pokeapi.co/api/v2/pokemon/" + pokeID.toString();
+   fetch(url)
+       .then(response => response.json())
+       .then(data => crearPkmn(data))
+   //.then(data => console.log(data))
+}
+
+
+function crearPkmn(data) {
+   let imagen = pokemonHTML.getElementsByTagName("img")[0];
+   imagen.setAttribute("src",data.sprites.front_default);
+
+   let nombre = pokemonHTML.getElementsByTagName("p")[0];
+   nombre.textContent = data.name;
+
+   console.log(pokeID);
 }

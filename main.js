@@ -1,20 +1,20 @@
 var pokeID = 1;
 let pokemonHTML = document.getElementById("pkmn");
-let interval = setInterval('display()', 2000);
+let interval = setInterval('display()', 1000);
 
 
 function display() {
    console.log(pokeID);
-   pokeAPI()
+   pokeAPI(pokeID);
    pokeID=incrementar(pokeID);
 }
 
-function incrementar(id) {
-   id++;
-   if (id>150) {
-      id=1;
+function incrementar(numero) {
+   numero++;
+   if (numero>150) {
+      numero=1;
    }
-   return id;
+   return numero;
 }
 
 function pokeAPI(pokeID = 1) {

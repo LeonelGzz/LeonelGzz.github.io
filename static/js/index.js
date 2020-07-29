@@ -2,6 +2,8 @@
 const pokemons_number = 151;
 
 async function gottaCatchEmAll(){
+    //Fetch pokemons info from pokeApi
+    //Create HTML list elements 
     for (let id = 1; id <= pokemons_number; id++) {
         const pokemonInfo = await getPokemon(id);
         createListSprite(pokemonInfo);
@@ -9,8 +11,8 @@ async function gottaCatchEmAll(){
 }
 
 async function getPokemon(id){
-
-    const url = "https://pokeapi.co/api/v2/pokemon/"+ id.toString();
+//Fetch pokemon info
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
     const pokemon = await res.json();
     return(pokemon);
@@ -20,10 +22,10 @@ function createListSprite(pokemon){
     //Preformato de contenido 
     const name=pokemon.name.toString();
     const viewName=name[0].toUpperCase()+name.slice(1);
-    const listSprite = '<img src="https://img.pokemondb.net/sprites/sword-shield/icon/'+name+'.png">';
+    const listSprite = `<img src="https://img.pokemondb.net/sprites/sword-shield/icon/${name}.png">`;
     const listNumber = pokemon.id.toString();
     //Formato
-    const listHTML=listSprite + "<p>" + listNumber +". "+viewName+"</p>"
+    const listHTML=`${listSprite}<p>${listNumber}. ${viewName}</p>`
 
     //Crear nueva estructura HTML
     const listElement = document.createElement("div");

@@ -11,12 +11,17 @@ body {
     padding: 10px;
 }
 
+
 .listPokemon{
     background: linear-gradient(90deg, var(--color-blanco) 70%, var(--color-rojo-oscuro) 100%);
-    margin: 5px;
+    margin: 10px;
     padding: 0px 10px 0px 0px;
-    border-radius:  50px 0px 0px 50px ;
-    
+    border-radius:  50px 0px 0px 50px ;    
+}
+
+.listPokemon:hover{
+    margin: 5px;
+    background: linear-gradient(90deg, var(--color-blanco) 60%, var(--color-rojo-oscuro) 100%);
 }
 
 .display img{

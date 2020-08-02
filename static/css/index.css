@@ -1,13 +1,13 @@
 :root{
-    --color-rojo-claro:#ff5200;
-    --color-rojo-oscuro:#6f0000;
-    --color-verde-claro:#00a1ab;
-    --color-verde-oscuro:#00263b;
+    --color-primario-claro:#ff5200;
+    --color-primario-oscuro:#6f0000;
+    --color-secundario-claro:#00a1ab;
+    --color-secundario-oscuro:#00263b;
     --color-blanco:#f4f6ff;
 }
 
 body {
-    background-color: var(--color-rojo-oscuro);
+    background-color: var(--color-primario-oscuro);
     padding: 10px;
 }
 
@@ -19,13 +19,18 @@ body {
     border-radius:  50px 50px 50px 50px ;    
 }
 
-.listPokemon:hover{
-    margin: 5px;
-    background: linear-gradient(90deg, var(--color-blanco) 60%, var(--color-rojo-oscuro) 100%);
+p.name {
+    text-transform: capitalize;
 }
 
+.listPokemon:hover{
+    margin: 5px;
+    background: linear-gradient(90deg, var(--color-blanco) 60%, var(--color-primario-oscuro) 100%);
+}
+
+
 .display img{
-    background-color: var(--color-verde-claro);
+    background-color: var(--color-secundario-claro);
     width: 10em;
     height: 10em;
 }

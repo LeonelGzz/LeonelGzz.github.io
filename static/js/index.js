@@ -22,15 +22,22 @@ function createListSprite(pokemon){
     //Preformato de contenido 
     //const name=pokemon.name.toString();
     //const viewName=name[0].toUpperCase()+name.slice(1);
+    
+    // 64x64 sprite-link https://img.pokemondb.net/sprites/sword-shield/icon/${name}.png
+   
+   
     const name = pokemon.name.toString();
-    const listSprite = `<img src="https://img.pokemondb.net/sprites/sword-shield/icon/${name}.png">`;
+    const listSprite = `<img src="https://img.pokemondb.net/sprites/home/normal/${name}.png">`;
     const listNumber = pokemon.id.toString();
     //Formato
     const listHTML=`${listSprite}<p>${listNumber}.</p><p class="name">${name}</p>`
 
     //Crear nueva estructura HTML
     const listElement = document.createElement("div");
-    listElement.classList.add("listPokemon");
+    
+    listElement.classList.add(name);
+    listElement.id=name
+    listElement.classList.add("pokemon-container") ;
     listElement.classList.add("row") ;
     listElement.innerHTML = listHTML;  
 
